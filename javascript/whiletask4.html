@@ -1,0 +1,21 @@
+<script>
+    var a=9,temp,rem,reverse=0
+
+    temp=a
+
+    while(a!=0)
+{
+    rem=a%10
+    reverse=reverse*10+rem
+    a=parseInt(a/10)
+}
+document.write("<br>"+reverse)
+
+if(temp==reverse)
+{
+    document.write("<br>it is palindrome number")
+}
+else{
+    document.write("<br>it is not palindrome number")
+}
+</script>

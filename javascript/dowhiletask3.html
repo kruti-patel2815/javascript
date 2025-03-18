@@ -1,0 +1,15 @@
+<script>
+    var a=153,rem,sum=0
+
+    do
+    {
+        rem=a%10
+        a=parseInt(a/10)
+        rem=rem*rem*rem
+        sum=sum+rem
+
+    }while(a!=0)
+
+    document.write("<br>"+sum)
+
+</script>

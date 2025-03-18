@@ -1,0 +1,133 @@
+<script>
+  var a = 91,
+    b = 88,
+    c = 90,
+    d = 79,
+    e = 66;
+
+  document.write("<br>a= " + a);
+  document.write("<br>b= " + b);
+  document.write("<br>c= " + c);
+  document.write("<br>d= " + d);
+  document.write("<br>e= " + e);
+
+  total = a + b + c + d + e;
+  percentage = total / 5;
+
+  document.write("<br>total= " + total);
+  document.write("<br>percentage= " + percentage + "%");
+
+  if (a < b) {
+    if (a < c) {
+      if (a < d) {
+        if (a < e) {
+          min = a;
+        } else {
+          min = e;
+        }
+      } else {
+        if (d < e) {
+          min = d;
+        } else {
+          min = e;
+        }
+      }
+    } else {
+      if (c < d) {
+        if (c < e) {
+          min = c;
+        } else {
+          min = e;
+        }
+      } else {
+        if (d < e) {
+          min = d;
+        } else {
+          min = e;
+        }
+      }
+    }
+  } else {
+    if (b < c) {
+      if (b < d) {
+        if (b < e) {
+          min = b;
+        } else {
+          min = e;
+        }
+      } else {
+        if (d < e) {
+          min = d;
+        } else {
+          min = e;
+        }
+      }
+    } else {
+      if (c < d) {
+        if (c < e) {
+          min = c;
+        } else {
+          min = e;
+        }
+      } else {
+        if (d < e) {
+          min = d;
+        } else {
+          min = e;
+        }
+      }
+    }
+  }
+
+  document.write("<br>Minmum=" + min);
+
+  Maximum =
+    a > b
+      ? a > c
+        ? a > d
+          ? a > e
+            ? a
+            : e
+          : d > e
+          ? d
+          : e
+        : c > d
+        ? c > e
+          ? c
+          : e
+        : d > e
+        ? d
+        : e
+      : b > c
+      ? b > d
+        ? b > e
+          ? b
+          : e
+        : d > e
+        ? d
+        : e
+      : c > d
+      ? c > e
+        ? c
+        : e
+      : d > e
+      ? d
+      : e;
+  document.write("<br>Maximum= " + Maximum);
+
+  if (a > 33 && b > 33 && c > 33 && d > 33 && e > 33) {
+    if (percentage >= 90) {
+      document.write("<br>Grade A");
+    } else if (percentage >= 80) {
+      document.write("<br>Grade B");
+    } else if (percentage >= 70) {
+      document.write("<br>Grade C");
+    } else if (percentage >= 60) {
+      document.write("<br>Grade D");
+    } else if (percentage >= 50) {
+      document.write("<br>Grade E");
+    }
+  } else {
+    document.write("<br>FAIL");
+  }
+</script>
