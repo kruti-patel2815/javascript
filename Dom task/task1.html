@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>welcome to creative</h1>
+    <button onclick="document.getElementsByTagName('h1')[0].innerText='welcome to CDMI'
+    ">CLICK</button><br><br>
+
+    <h2 class="title">Good</h2>
+    <h2 class="title">Hello</h2>
+    <button onclick="document.getElementsByClassName('title')[1].innerText='Morning'">CLICK 2</button>
+
+    <p id="creative">a group of sentences that develop a single idea, typically containing a topic sentence, supporting sentences, and a concluding sentence, and is used to organize writing and make it easier for the reader to follow. </p>
+    <button onclick="document.getElementById('creative').innerHTML='<b>creative</b>'">Click 3
+
+    </button>
+    <br><br>
+
+    <span class="demo">a group of sentences that develop a single idea, typically containing a topic sentence, supporting sentences, and a concluding sentence, and is used to organize writing and make it easier for the reader to follow. </span><br><br>
+    <button onclick="edit()">Change</button>
+    <script>
+            function edit()
+             {
+                var i=document.getElementsByClassName('demo')[0]
+                i.style.color='blue'
+                i.style.backgroundColor='yellow'
+                i.innerHTML="<b><i>a group of sentences that develop a single idea, typically containing a topic sentence, supporting sentences, and a concluding sentence, and is used to organize writing and make it easier for the reader to follow. </i></b>"
+             }
+    </script>
+    
+</body>
+</html>
