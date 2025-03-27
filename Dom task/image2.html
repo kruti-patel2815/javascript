@@ -1,0 +1,35 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img id="image"src="../img/premium_photo-1664474619075-644dd191935f.jpg" alt="" style="width: 500px;height: 500px;"><br><br>
+    <button onclick="swapImage()">Click me</button>
+
+    <script>
+        var i=0
+        function swapImage(){
+           var  imgElement = document.getElementById("image");
+           if(i%2==0)
+           {
+                imgElement.src="../img/_100058428_mediaitem100058424.jpg"
+           }
+           else
+           {
+                imgElement.src="../img/premium_photo-1664474619075-644dd191935f.jpg"
+           }
+           i++;
+           console.log("---",i);
+           
+        }
+    </script>
+</body>
+</html> 
+
+
+    
+    
+
