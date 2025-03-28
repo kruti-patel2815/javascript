@@ -1,0 +1,39 @@
+<style>
+    .color {
+        color: red;
+    }
+</style>
+<script>
+    function data() {
+        const name = document.getElementById('name').value
+        console.log(name);
+
+        const surname = document.getElementById('surname').value
+        console.log(surname);
+
+        if (!name) {
+            document.getElementById('name-error').innerText = "Enter name"
+        }
+        else {
+            document.getElementById('name-error').innerText = ""
+        }
+        if (!surname) {
+            document.getElementById('surname-error').innerText = "Enter surname"
+        }
+        else {
+            document.getElementById('surname-error').innerText = ""
+        }
+        if (name && surname) {
+            alert("Data Enter Successfully!!")
+            document.getElementById('name').value = ""
+            document.getElementById('surname').value = ""
+        }
+
+    }
+</script>
+
+Name:- <input type="text" id="name">
+<p id="name-error" class="color"></p><br><br>
+Surname:- <input type="text" id="surname">
+<p id="surname-error" class="color"></p><br><br>
+Submit:- <button onclick="data()">Submit</button>

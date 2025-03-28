@@ -1,0 +1,70 @@
+<style>
+    .color{
+        color: red;
+    }
+</style>
+<script>
+    
+    let arr = []
+    // object => {name : "val" , surname : "val"} => .
+    // arr obj => map
+
+    function createData() {
+        const name = document.getElementById('name').value
+        console.log(name);
+        const surname = document.getElementById('surname').value
+        console.log(surname);
+
+        const obj = {name , surname}
+
+        if (!name) {
+            document.getElementById('name-err').innerText="Enter name"
+        }
+        else
+        {
+            document.getElementById('name-err').innerText=""
+        }
+        if(!surname)
+        {
+            document.getElementById('surname-err').innerText="Enter surname"
+        }
+        else
+        {
+            document.getElementById('surname-err').innerText=""
+        }
+
+        if(name && surname)
+        {
+            alert("Data get Success")
+            arr.push(obj)
+            document.getElementById('name').value=""
+            document.getElementById('surname').value=""
+        }
+        dataView()
+    }
+
+    function dataView()
+    {
+        // console.log(arr);
+        var htmlPrint = ''
+        arr.map((record , index) => {
+            htmlPrint += '<tr><td>'+record.name+'</td><td>'+record.surname+'</td></tr>'
+        })
+        document.getElementById('printData').innerHTML = htmlPrint
+    }
+</script>
+
+
+NAme :- <input type="text" name="" id="name">
+<p id="name-err" class="color"></p> <br><br>
+Surname :- <input type="text" id="surname">
+<p id="surname-err" class="color"></p> <br><br>
+Submit :- <button onclick="createData()">Submit</button>
+
+<table border="1">
+    <tr>
+        <td>Name</td>
+        <td>surname</td>
+    </tr>
+    <tbody id="printData"></tbody>
+</table>
