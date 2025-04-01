@@ -33,9 +33,11 @@
             document.getElementById('surname-err').innerText=""
         }
 
+
         if(name && surname)
         {
-            alert("Data get Success")
+            // alert("Data get Suc0.
+            // cess")
             arr.push(obj)
             document.getElementById('name').value=""
             document.getElementById('surname').value=""
@@ -48,9 +50,16 @@
         // console.log(arr);
         var htmlPrint = ''
         arr.map((record , index) => {
-            htmlPrint += '<tr><td>'+record.name+'</td><td>'+record.surname+'</td></tr>'
+            htmlPrint += `<tr><td>${record.name}</td><td>${record.surname}</td><td><button onclick=deleteData(${index})>DELETE</button></td></tr>`
         })
         document.getElementById('printData').innerHTML = htmlPrint
+    }
+
+    function deleteData(index)
+    {
+        // document.write(index)
+        arr.splice(index , 1)
+        dataView()
     }
 </script>
 
@@ -65,6 +74,7 @@ Submit :- <button onclick="createData()">Submit</button>
     <tr>
         <td>Name</td>
         <td>surname</td>
+        <td>DELETE</td>
     </tr>
     <tbody id="printData"></tbody>
 </table>

@@ -1,0 +1,76 @@
+<style>
+    .color{
+        color:red;
+    }
+</style>
+<!-- [{}{}{}{}] -->
+<script>
+
+     let array=[]
+    function data()
+    {
+        const name=document.getElementById('name').value
+        console.log(name);
+
+        const surname=document.getElementById('surname').value
+        console.log(surname);
+
+        const object={name,surname}
+
+        if(!name)
+        {
+           document.getElementById('name-err').innerText="Enter name"
+    }
+    else
+    {
+        document.getElementById('name-err').innerText=""
+    }
+    if(!surname)
+        {
+           document.getElementById('surname-err').innerText="Enter surname"
+    }
+    else
+    {
+        document.getElementById('surname-err').innerText=""
+    }
+
+    if(name && surname)
+    {
+        array.push(object)
+
+        document.getElementById('name').value=""
+        document.getElementById('surname').value=""
+
+        printData()
+    }
+    }
+    function printData()
+    {
+        let print=""
+        array.map((record,index)=>{
+            print+=`<tr><td>${record.name}</td><td>${record.surname}</td><td><button onclick=deleteData(${index})>Delete</button></td></tr>`
+        })
+        document.getElementById('dataview').innerHTML=print
+    }
+
+    function deleteData(index)
+    {
+        array.splice(index,1)
+        printData()
+    }
+</script>
+
+Name: <input type="text" id="name">
+<p id="name-err" class="color"></p><br><br>
+Surname: <input type="text" name="" id="surname">
+<p id="surname-err" class="color"></p><br><br>
+Submit: <button onclick="data()">Submit</button>
+<br><br>
+<table border="1">
+    <tr>
+        <th>name</th>
+        <th>surname</th>
+        <th>Delete</th>
+    </tr>
+    <tbody id="dataview"></tbody>
+</table>
