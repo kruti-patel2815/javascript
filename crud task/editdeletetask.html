@@ -3,7 +3,7 @@
         color: red;
     }
 </style>
-<!-- [{}{}{}{}] -->
+
 <script>
 
     let array = []
@@ -11,40 +11,34 @@
 
     function data() {
         const name = document.getElementById('name').value
-        console.log(name);
-
         const surname = document.getElementById('surname').value
-        console.log(surname);
-
-        const object = { name, surname }
+        const obj = { name, surname }
 
         if (!name) {
-            document.getElementById('name-err').innerText = "Enter name"
+            document.getElementById('name-error').innerText = "Enter name"
         }
         else {
-            document.getElementById('name-err').innerText = ""
+            document.getElementById('name-error').innerText = ""
         }
+
         if (!surname) {
-            document.getElementById('surname-err').innerText = "Enter surname"
+            document.getElementById('surname-error').innerText = "Enter surname"
         }
         else {
-            document.getElementById('surname-err').innerText = ""
+            document.getElementById('surname-error').innerText = ""
         }
-
         if (name && surname) {
+
             if (editId != null) {
-
-               array[editId] = object
-               editId=null
-               
+                array[editId]=obj
+                editId=null
             }
-            else {
-                array.push(object)
 
+            else {
+                array.push(obj)
             }
             document.getElementById('name').value = ""
             document.getElementById('surname').value = ""
-
             printData()
         }
     }
@@ -52,10 +46,10 @@
         let print = ""
         array.map((record, index) => {
             print += `<tr><td>${record.name}</td><td>${record.surname}</td><td><button onclick=deleteData(${index})>Delete</button></td><td><button onclick=editData(${index})>Edit</button></td></tr>`
+
         })
         document.getElementById('dataview').innerHTML = print
     }
-
     function deleteData(index) {
         array.splice(index, 1)
         printData()
@@ -63,26 +57,33 @@
     function editData(index) {
         let editData = array[index]
 
-        document.getElementById("name").value = editData.name
-        document.getElementById("surname").value = editData.surname
+        document.getElementById('name').value = editData.name
+        document.getElementById('surname').value = editData.surname
 
         editId = index
-
     }
+
+
+
 </script>
 
+
+
+
+
+
 Name: <input type="text" id="name">
-<p id="name-err" class="color"></p><br><br>
-Surname: <input type="text" name="" id="surname">
-<p id="surname-err" class="color"></p><br><br>
+<p id="name-error" class="color"></p><br><br>
+surname: <input type="text" id="surname">
+<p id="surname-error" class="color"></p>
 Submit: <button onclick="data()">Submit</button>
-<br><br>
+
 <table border="1">
     <tr>
-        <th>name</th>
-        <th>surname</th>
-        <th>Delete</th>
-        <th>Edit</th>
+        <td>Name</td>
+        <td>Surname</td>
+        <td>Delete</td>
+        <td>Edit</td>
     </tr>
     <tbody id="dataview"></tbody>
 </table>

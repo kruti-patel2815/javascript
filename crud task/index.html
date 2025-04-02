@@ -6,6 +6,7 @@
 <script>
     
     let arr = []
+    let editIndex = null
     // object => {name : "val" , surname : "val"} => .
     // arr obj => map
 
@@ -38,7 +39,16 @@
         {
             // alert("Data get Suc0.
             // cess")
+
+            if(editIndex != null)
+        {
+            arr[editIndex] = obj
+            editIndex = null
+        }
+        else
+        {
             arr.push(obj)
+        }
             document.getElementById('name').value=""
             document.getElementById('surname').value=""
         }
@@ -50,7 +60,7 @@
         // console.log(arr);
         var htmlPrint = ''
         arr.map((record , index) => {
-            htmlPrint += `<tr><td>${record.name}</td><td>${record.surname}</td><td><button onclick=deleteData(${index})>DELETE</button></td></tr>`
+            htmlPrint += `<tr><td>${record.name}</td><td>${record.surname}</td><td><button onclick=deleteData(${index})>DELETE</button></td><td><button onclick=editData(${index})>EDIT</button></td></tr>`
         })
         document.getElementById('printData').innerHTML = htmlPrint
     }
@@ -60,6 +70,16 @@
         // document.write(index)
         arr.splice(index , 1)
         dataView()
+    }
+
+    function editData(index)
+    {
+         editIndex = index
+        const editData = arr[index]
+        // console.log(editData);
+        document.getElementById('name').value = editData.name
+        document.getElementById('surname').value = editData.surname
+        
     }
 </script>
 
@@ -75,6 +95,7 @@ Submit :- <button onclick="createData()">Submit</button>
         <td>Name</td>
         <td>surname</td>
         <td>DELETE</td>
+        <td>EDIT</td>
     </tr>
     <tbody id="printData"></tbody>
 </table>
