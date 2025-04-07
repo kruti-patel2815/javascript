@@ -1,0 +1,49 @@
+<script>
+     //var array = [12, 23, 45]
+
+    // document.write(array[0])
+    // document.write(array[1])
+
+     for (var i = 0; i < array.length; i++) {
+        document.write("<br>", array[i])
+     }
+
+
+    // for (var item of array) {
+    //     document.write("<br>", item)
+    // }
+
+     let object = {name : "hello" , age : 90 , surname : "demo"}
+
+     document.write(object.name)
+    document.write(object.age)
+     document.write(object.surname)
+
+         for(var item in object)
+     {
+        document.write("<br>",object[item])
+     }
+
+
+    var array = [[112, 23], [45, 567]]
+
+    // document.write(array[0][0])
+    // document.write(array[0][1])
+    // document.write(array[1][0])
+    // document.write(array[1][1])
+
+    for (var i = 0; i < array.length; i++) {
+        for (var j = 0; j < array.length; j++) {
+            document.write("<br>",array[i][j])
+        }
+    }
+    document.write("<br>")
+    for (var i = 0; i < array.length; i++) {
+        for (var j = 0; j < array.length; j++) {
+            document.write("&nbsp&nbsp",array[i][j])
+        }
+        document.write("<br>")
+    }
+
+
+</script>

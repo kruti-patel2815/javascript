@@ -1,0 +1,68 @@
+
+<script>
+
+    function get()
+    {
+
+
+    }
+    get();
+
+
+    //Immediately invoked function
+    (function(){
+        console.log("Hello");
+    })()
+
+
+    //Anonymous functions
+
+
+    const demo = function(){
+        console.log("check function"); 
+    }
+    demo()
+
+    //arrow function
+    
+    const myFunction = () => {
+        console.log("arrow function");
+    }
+
+    myFunction()
+   
+    //closure function
+
+
+    function myParent()
+    {
+        var a=12
+        console.log("This is parent function");
+        function myChild()
+        {   
+            console.log("check value ==> ",a);
+            
+        }
+        myChild()
+    }
+    myParent()
+
+    //callback function
+
+
+    function myFunction(st  ,myCallback)
+    {
+        console.log("This is test function ... ",st);
+        myCallback()
+        
+    }
+    function myCallback()
+    {
+        console.log("check callback function");
+    } 
+    
+
+    myFunction("Hello" , myCallback)
+
+
+</script>
