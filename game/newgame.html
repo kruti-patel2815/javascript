@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="newgame.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="container">
+            <button type="button" class="btn btn-success" onclick="resetGame()">PLAY</button>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="container">
+            <div class="board">
+                <button class="box"></button>
+                <button class="box"></button>
+                <button class="box"></button>
+                <button class="box"></button>
+                <button class="box"></button>
+                <button class="box"></button>
+                <button class="box"></button>
+                <button class="box"></button>
+                <button class="box"></button>
+            </div>
+        </div>
+    </div>
+    <script>
+        let boxes = document.querySelectorAll(".box")
+        let player1 = true
+        let winPattern = [
+            [0, 1, 2],
+            [0, 3, 6],
+            [0, 4, 8],
+            [1, 4, 7],
+            [2, 5, 8],
+            [2, 4, 6],
+            [6, 7, 8],
+            [3, 4, 5]
+
+        ]
+
+        boxes.forEach((box) => {
+            box.addEventListener("click", () => {
+                if (player1) {
+                    box.innerText = "0"
+                    player1 = false
+                }
+                else {
+                    box.innerText = "X"
+                    player1 = true
+                }
+                box.disabled = true
+                checkwinner()
+            })
+        })
+
+        function checkwinner() {
+            for (pattern of winPattern) {
+                let a = boxes[pattern[0]].innerText
+                let b = boxes[pattern[1]].innerText
+                let c = boxes[pattern[2]].innerText
+
+                if (a == b && b == c && a != "") {
+                    alert("player" + a + "win")
+                    resetGame()
+                    return
+                }
+            }
+        }
+
+        function disabled() {
+            boxes.forEach(box => box.disabled = true)
+        }
+
+        function resetGame() {
+            boxes.forEach((box) => {
+                box.disabled = false
+                box.innerText = ""
+            })
+            statusText.innerText = ""
+            player1 = true
+        }
+    </script>
+
+</body>
+
+</html>
