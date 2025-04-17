@@ -1,0 +1,128 @@
+<style>
+    .color {
+        color: red;
+    }
+</style>
+<script>
+
+    let array = []
+    let editIndex = null
+
+    function createData() {
+        const name = document.getElementById('name').value
+        const surname = document.getElementById('surname').value
+        const address = document.getElementById('address').value
+        const email = document.getElementById('email').value
+        const password = document.getElementById('password').value
+
+        const object = { name, surname, address, email, password }
+
+        if (!name) {
+            document.getElementById('name-error').innerText = "Enter name"
+        }
+        else {
+            document.getElementById('name-error').innerText = ""
+        }
+
+        if (!surname) {
+            document.getElementById('surname-error').innerText = "Enter surname"
+        }
+        else {
+            document.getElementById('surname-error').innerText = ""
+        }
+
+        if (!address) {
+            document.getElementById('address-error').innerText = "Enter address"
+        }
+        else {
+            document.getElementById('address-error').innerText = ""
+        }
+
+        if (!email) {
+            document.getElementById('email-error').innerText = "Enter email"
+        }
+        else {
+            document.getElementById('email-error').innerText = ""
+        }
+
+        if (!password) {
+            document.getElementById('password-error').innerText = "Enter password"
+        }
+        else {
+            document.getElementById('password-error').innerText = ""
+        }
+
+        if (name && surname && address && email && password) {
+            if (editIndex != null) {
+                array[editIndex] = object
+                editIndex = null
+            }
+            else {
+                array.push(object)
+            }
+            document.getElementById('name').value = ""
+            document.getElementById('surname').value = ""
+            document.getElementById('address').value = ""
+            document.getElementById('email').value = ""
+            document.getElementById('password').value = ""
+        }
+        dataView()
+
+    }
+    function dataView() {
+        var htmlPrint = ""
+        array.map((record, index) => {
+            htmlPrint += `<tr><td>${record.name}</td><td>${record.surname}</td><td>${record.address}</td><td>${record.email}</td><td>${record.password}</td><td><button onclick=deleteData(${index})>DELETE</button></td><td><button onclick=editData(${index})>EDIT</button></td></tr>`
+        })
+        document.getElementById('printData').innerHTML = htmlPrint
+    }
+
+    function deleteData(index) {
+        array.splice(index, 1)
+        dataView()
+    }
+
+    function editData(index) {
+        editIndex = index
+        const editData = array[index]
+
+        document.getElementById('name').value = editData.name
+        document.getElementById('surname').value = editData.surname
+        document.getElementById('address').value = editData.address
+        document.getElementById('email').value = editData.email
+        document.getElementById('password').value = editData.password
+    }
+
+</script>
+
+
+
+Name: <input type="text" id="name">
+<p id="name-error" class="color"></p><br>
+
+Surname: <input type="text" id="surname">
+<p id="surname-error" class="color"></p><br>
+
+Address: <input type="text" id="address">
+<p id="address-error" class="color"></p><br>
+
+email: <input type="text" id="email">
+<p id="email-error" class="color"></p><br>
+
+password: <input type="text" id="password">
+<p id="password-error" class="color"></p><br>
+
+Submit: <button onclick="createData()">SUBMIT</button><br><br>
+
+<table border="1">
+    <tr>
+        <td>name</td>
+        <td>surname</td>
+        <td>address</td>
+        <td>email</td>
+        <td>password</td>
+        <td>Delete</td>
+        <td>Edit</td>
+    </tr>
+    <tbody id="printData"></tbody>
+</table>
